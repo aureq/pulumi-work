@@ -47,8 +47,8 @@ Please be cautious not to delete existing certificates. If an existing client ce
 ```bash
 # Make sure you don't overwrite an existing certificate in $HOME/.docker/
 KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > $HOME/.docker/key.pem
-KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > $HOME/.docker/key.pem
-KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > $HOME/.docker/key.pem
+KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > $HOME/.docker/ca.pem
+KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > $HOME/.docker/cert.pem
 ```
 
 Alternatively, store your docker client cerificate locally.
@@ -57,8 +57,8 @@ Alternatively, store your docker client cerificate locally.
 mkdir certs
 
 KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > certs/key.pem
-KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > certs/key.pem
-KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > certs/key.pem
+KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > certs/ca.pem
+KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > certs/cert.pem
 ```
 
 Validate everything is working as expected.
