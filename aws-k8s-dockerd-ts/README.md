@@ -56,7 +56,7 @@ Alternatively, store your docker client cerificate locally.
 ```bash
 mkdir certs
 
-KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > certs/docker/key.pem
+KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > certs/key.pem
 KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > certs/key.pem
 KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > certs/key.pem
 ```
@@ -95,7 +95,7 @@ mkdir $HOME/.docker
 if [ -e "$HOME/.docker/key.pem" -o -e "$HOME/.docker/key.pem" -o -e "$HOME/.docker/key.pem" ]; then
   # get the certs
   mkdir certs
-  KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > certs/docker/key.pem
+  KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > certs/key.pem
   KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/ca.pem > certs/key.pem
   KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > certs/key.pem
 
