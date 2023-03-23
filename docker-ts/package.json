@@ -1,0 +1,11 @@
+{
+    "name": "docker-ts",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16.18.18"
+    },
+    "dependencies": {
+        "@pulumi/docker": "^4.0.1",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}
