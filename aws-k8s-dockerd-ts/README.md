@@ -74,9 +74,9 @@ If you have stored your Docker client certificate outside of the default locatio
 
 ```bash
 export DOCKER_HOST=$(pulumi stack output DOCKER_HOST)
-docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
-docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image pull docker.io/busybox
-docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
+docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
+docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image pull docker.io/busybox
+docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
 ```
 
 ### Shell script
@@ -100,9 +100,9 @@ if [ -e "$HOME/.docker/key.pem" -o -e "$HOME/.docker/key.pem" -o -e "$HOME/.dock
   KUBECONFIG=kubeconfig kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/cert.pem > certs/key.pem
 
   # run smoke test
-  docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
-  docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image pull docker.io/busybox
-  docker --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
+  docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
+  docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image pull docker.io/busybox
+  docker --tls --tlscacert=certs/ca.pem  --tlskey=certs/key.pem --tlscert=certs/cert.pem image ls
 else
   # get the certs
   kubectl exec -n dockerd-service $POD_NAME --container "busybox" -- cat /certs/key.pem > $HOME/.docker/key.pem
