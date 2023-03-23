@@ -22,4 +22,4 @@ This deployment is for demonstration purpose only. Please do NOT consider this c
 - `dockerfilePath`: Path to the `Dockerfile`. If unset, the Docker provider expects the Dockerfile in `context`
 - `imageName`: Define the container image name
 
-The [index.ts](index.ts) has 3 examples commeted. So just uncomment to get started.
+The [index.ts](index.ts) has 3 examples commented. So just uncomment to get started.
